@@ -213,7 +213,9 @@ class GCodeParser:
             line = origline = line.strip()
             cpos = line.find(';')
             if cpos >= 0:
+                linex = line
                 line = line[:cpos]
+                self.respond_info('Comment:"%s"  "%s"' % (linex,line,))
             # Break command into parts
             parts = self.args_r.split(line.upper())[1:]
             params = { parts[i]: parts[i+1].strip()
