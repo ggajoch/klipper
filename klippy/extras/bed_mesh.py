@@ -257,6 +257,9 @@ class BedMeshCalibrate:
                 config, ('probe_count', '3'), check=False, cast=int, minval=3)
             min_x, min_y = parse_pair(config, ('mesh_min',))
             max_x, max_y = parse_pair(config, ('mesh_max',))
+
+            self.gcode.respond_info("Points X {}-{}".format(min_x, max_x))
+
             if max_x <= min_x or max_y <= min_y:
                 raise config.error('bed_mesh: invalid min/max points')
 

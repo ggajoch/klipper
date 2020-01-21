@@ -20,6 +20,9 @@ class PosLevel:
     def cmd_MINX(self, params):
         val = self.gcode.get_float('_', params, None)
         if val is not None:
+            configfile = self.printer.lookup_object('configfile')
+            configfile.set('bed_mesh', 'mesh_min', '10,10')
+
             self.gcode.respond_info("MINX Woorks! {}".format(val))
 
         # with open('/home/pi/test', 'w') as f:
