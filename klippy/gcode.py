@@ -209,13 +209,14 @@ class GCodeParser:
     args_r = re.compile('([A-Z_]+|[A-Z*/])')
     def _process_commands(self, commands, need_ack=True):
         for line in commands:
+            if line.find(';MINX') >= 0 or line.find(';MAXX') >= 0 or line.find(';MINY') >= 0 or line.find(';MAXY') >= 0:
+                line = line[1:]
+                line = line.replace(':', ' ')
             # Ignore comments and leading/trailing spaces
             line = origline = line.strip()
             cpos = line.find(';')
             if cpos >= 0:
-                linex = line
                 line = line[:cpos]
-                self.respond_info('Comment:"%s"  "%s"' % (linex,line,))
             # Break command into parts
             parts = self.args_r.split(line.upper())[1:]
             params = { parts[i]: parts[i+1].strip()
