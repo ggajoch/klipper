@@ -9,16 +9,17 @@ class PosLevel:
         self.gcode.register_command('POS_LEVEL', self.cmd_POS_LEVEL,
                                     desc=self.cmd_POS_LEVEL_help)
         self.gcode.register_command('MINX', self.cmd_MINX,
-                                    desc=self.cmd_POS_LEVEL_help)
+                                    desc=self.cmd_MINX_help)
 
     cmd_POS_LEVEL_help = "Setup config for only MIN/MAX bed positions"
+    cmd_MINX_help = "/MAX bed positions"
 
     def cmd_POS_LEVEL(self, params):
         self.gcode.respond_info("Wooorks!")
 
     def cmd_MINX(self, params):
-        with open('/home/pi/test', 'w') as f:
-            f.write('dupa')
+        # with open('/home/pi/test', 'w') as f:
+        #     f.write('dupa')
         self.gcode.respond_info("MINX Woorks!")
 
 
