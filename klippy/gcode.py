@@ -215,7 +215,7 @@ class GCodeParser:
             cpos = line.find(';MINX')
             if cpos >= 0:
                 line = line[cpos+1:]
-                line = line.replace(':', ' ')
+                line = line.replace(':', ' _=')
 
             cpos = line.find(';')
             if cpos >= 0:

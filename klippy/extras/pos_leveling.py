@@ -18,9 +18,13 @@ class PosLevel:
         self.gcode.respond_info("Wooorks!")
 
     def cmd_MINX(self, params):
+        val = self.gcode.get_float('_', params, None)
+        if val is not None:
+            self.gcode.respond_info("MINX Woorks! {}".format(val))
+
         # with open('/home/pi/test', 'w') as f:
         #     f.write('dupa')
-        self.gcode.respond_info("MINX Woorks!")
+        
 
 
 def load_config(config):
