@@ -208,6 +208,7 @@ class BedMesh:
 class BedMeshCalibrate:
     ALGOS = ['lagrange', 'bicubic']
     def __init__(self, config, bedmesh):
+        self.gcode = self.printer.lookup_object('gcode')
         self.printer = config.get_printer()
         self.name = config.get_name()
         self.radius = self.origin = None
@@ -226,7 +227,7 @@ class BedMeshCalibrate:
         self.profiles = {}
         self.incompatible_profiles = []
         self._load_storage(config)
-        self.gcode = self.printer.lookup_object('gcode')
+        
         self.gcode.register_command(
             'BED_MESH_CALIBRATE', self.cmd_BED_MESH_CALIBRATE,
             desc=self.cmd_BED_MESH_CALIBRATE_help)
