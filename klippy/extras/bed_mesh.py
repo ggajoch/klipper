@@ -208,8 +208,8 @@ class BedMesh:
 class BedMeshCalibrate:
     ALGOS = ['lagrange', 'bicubic']
     def __init__(self, config, bedmesh):
-        self.gcode = self.printer.lookup_object('gcode')
         self.printer = config.get_printer()
+        self.gcode = self.printer.lookup_object('gcode')
         self.name = config.get_name()
         self.radius = self.origin = None
         self.relative_reference_index = config.getint(
