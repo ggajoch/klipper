@@ -17,7 +17,8 @@ class PosLevel:
         self.gcode.respond_info("Wooorks!")
 
     def MINX(self, params):
-
+        with open('/home/pi/test', 'w') as f:
+            f.write('dupa')
         self.gcode.respond_info("MINX Woorks!")
 
 
