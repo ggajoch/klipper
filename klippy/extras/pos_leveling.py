@@ -17,7 +17,8 @@ class PosLevel:
         self.gcode.respond_info("Wooorks!")
 
     def MINX(self, params):
-        self.gcode.respond_info("MINX: ", params)
+
+        self.gcode.respond_info("MINX Woorks!")
 
 
 def load_config(config):
